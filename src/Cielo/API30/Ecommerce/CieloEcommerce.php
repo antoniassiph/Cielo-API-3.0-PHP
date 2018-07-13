@@ -166,6 +166,7 @@ class CieloEcommerce
      * @param CreditCard $card
      *
      * @return CreditCard
+     * @throws Request\CieloRequestException
      */
     public function tokenizeCard(CreditCard $card)
     {
