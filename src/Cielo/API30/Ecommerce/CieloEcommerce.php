@@ -181,7 +181,7 @@ class CieloEcommerce
      *            The RecurrentPaymentId to be deactivated
      *
      * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     * @throws CieloRequestException if anything gets wrong.
+     * @throws Request\CieloRequestException
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
      *      Codes</a>
@@ -200,7 +200,7 @@ class CieloEcommerce
      *            The RecurrentPaymentId to be reactivated
      *
      * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     * @throws CieloRequestException if anything gets wrong.
+     * @throws Request\CieloRequestException
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
      *      Codes</a>
@@ -218,6 +218,7 @@ class CieloEcommerce
      * @param $recurrentPaymentId
      * @param int $recurrencyday
      * @return mixed
+     * @throws Request\CieloRequestException
      */
     public function changeDayRecurrentPayment($recurrentPaymentId, $recurrencyday)
     {
@@ -234,6 +235,7 @@ class CieloEcommerce
      * @param $recurrentPaymentId
      * @param int $amount
      * @return mixed
+     * @throws Request\CieloRequestException
      */
     public function changeAmountRecurrentPayment($recurrentPaymentId, $amount)
     {

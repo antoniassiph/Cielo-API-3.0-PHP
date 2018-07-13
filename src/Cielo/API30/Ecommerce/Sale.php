@@ -58,9 +58,9 @@ class Sale implements \JsonSerializable
             $this->payment->populate($data->Payment);
         }
 
-        if (isset($dataProps['MerchantOrderId'])) {
-            $this->merchantOrderId = $data->MerchantOrderId;
-        }
+         if (isset($dataProps['MerchantOrderId'])) {
+             $this->merchantOrderId = $data->MerchantOrderId;
+         }
     }
 
     /**
@@ -156,5 +156,15 @@ class Sale implements \JsonSerializable
         $this->payment = $payment;
 
         return $this;
+    }
+
+    /**
+     * Retorna um array com os atributos da classe
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return get_object_vars($this);
     }
 }

@@ -32,9 +32,9 @@ abstract class AbstractRequest
     public abstract function execute($param);
 
     /**
-     * @param                            $method
-     * @param                            $url
-     * @param \JsonSerializable|int|null $content
+     * @param                        $method
+     * @param                        $url
+     * @param \JsonSerializable|null $content
      *
      * @return mixed
      *

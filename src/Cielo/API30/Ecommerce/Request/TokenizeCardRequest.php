@@ -34,6 +34,7 @@ class TokenizeCardRequest extends AbstractRequest
 
     /**
      * @inheritdoc
+     * @throws CieloRequestException
      */
     public function execute($param)
     {

@@ -108,6 +108,8 @@ class Payment implements \JsonSerializable
 
     private $instructions;
 
+    private $fraudAnalysis;
+
     /**
      * Payment constructor.
      *
@@ -159,6 +161,11 @@ class Payment implements \JsonSerializable
         if (isset($data->DebitCard)) {
             $this->debitCard = new CreditCard();
             $this->debitCard->populate($data->DebitCard);
+        }
+
+        if (isset($data->FraudAnalysis)) {
+            $this->fraudAnalysis = new FraudAnalysis();
+            $this->fraudAnalysis->populate($data->fraudAnalysis);
         }
 
         $this->expirationDate = isset($data->ExpirationDate) ? $data->ExpirationDate : null;
@@ -1103,5 +1110,34 @@ class Payment implements \JsonSerializable
         $this->instructions = $instructions;
 
         return $this;
+    }
+
+    /**
+     * @param string $sequenceCriteria
+     * @return fraudAnalysis
+     */
+    public function fraudAnalysis($sequenceCriteria = FraudAnalysis::FRAUDSEQUENCECRITERIA_ONSUCCESS){
+        $fraudAnalysis = new FraudAnalysis($sequenceCriteria);
+
+        $this->setFraudAnalysis($fraudAnalysis);
+
+        return $fraudAnalysis;
+    }
+
+    /**
+     * @param FraudAnalysis $fraudAnalysis
+     * @return $this
+     */
+    public function setFraudAnalysis(FraudAnalysis $fraudAnalysis){
+        $this->fraudAnalysis = $fraudAnalysis;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFraudAnalysis()
+    {
+        return $this->fraudAnalysis;
     }
 }

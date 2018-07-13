@@ -25,7 +25,7 @@ class UpdateSaleRequest extends AbstractRequest
     /**
      * UpdateSaleRequest constructor.
      *
-     * @param Merchant    $type
+     * @param String    $type
      * @param Merchant    $merchant
      * @param Environment $environment
      */
