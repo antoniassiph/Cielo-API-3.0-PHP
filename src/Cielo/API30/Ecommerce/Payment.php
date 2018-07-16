@@ -413,7 +413,7 @@ class Payment implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return CreditCard
      */
     public function getCreditCard()
     {

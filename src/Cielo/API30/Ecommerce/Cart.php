@@ -22,7 +22,7 @@ class Cart implements \JsonSerializable{
     	$this->returnAccepted    	= isset($data->returnAccepted) ? $data->returnAccepted : true;
 
         if(isset($data->items)){
-    		$this->items = new Items();
+    		$this->items = new Item();
     		$this->populate($data->items);
     	}
     }
@@ -38,11 +38,11 @@ class Cart implements \JsonSerializable{
     }
 
     public function items(){
-        $items = new Items();
+        $items = new Item();
         return $items;
     }
 
-    public function setItems(Items $items){
+    public function setItems(Item $items){
     	$this->items[] = $items;
         return $this;
     }
